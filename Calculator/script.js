@@ -95,8 +95,7 @@
       updateDisplay();
     }
 
-    // Keyboard support
-    document.addEventListener('keydown', (e) => {
+      document.addEventListener('keydown', (e) => {
       if (e.key >= '0' && e.key <= '9') appendNumber(e.key);
       if (e.key === '.') appendDecimal();
       if (e.key === '+' || e.key === '-') appendOperator(e.key);
