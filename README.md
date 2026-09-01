@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=250&color=gradient&text=umair%20Ali%20Fida&fontColor=ffffff&fontSize=48&animation=fadeIn&fontAlignY=38&desc=Frontend%20Developer%20&descAlignY=58"/>
+  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=250&color=gradient&text=Umair%20Ali%20Fida&fontColor=ffffff&fontSize=48&animation=fadeIn&fontAlignY=38&desc=Frontend%20Developer%20&descAlignY=58"/>
 </p>
 
 <h1 align="center">Hi 👋, I'm Umair Ali Fida</h1>
@@ -10,7 +10,7 @@ Frontend Developer
 </h3>
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Poppins&size=24&pause=1000&color=00C2FF&center=true&vCenter=true&width=700&lines=Frontend+Developer;React+Developer;Building+Modern+Responsive+Websites;Learning+MERN+Stack;Open+to+New+Opportunities" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Poppins&size=24&pause=1000&color=00C2FF&center=true&vCenter=true&width=700&lines=Frontend+Developer;Building+Modern+Responsive+Websites;Learning+MERN+Stack;Open+to+New+Opportunities" />
 </p>
 
 ---
