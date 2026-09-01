@@ -1,71 +1,134 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive Image Gallery</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <div class="container">
-    <h1>Photo Gallery</h1>
+    <title>Image Gallery</title>
 
-   
-    <div class="filter-menu">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="nature">Nature</button>
-      <button class="filter-btn" data-filter="architecture">Architecture</button>
-      <button class="filter-btn" data-filter="city">City</button>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main class="gallery-container">
+      <header class="gallery-header">
+        <h1>Image Gallery</h1>
+        <p>Explore our collection</p>
+      </header>
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+
+        <button class="filter-btn" data-filter="nature">Nature</button>
+
+        <button class="filter-btn" data-filter="city">City</button>
+
+        <button class="filter-btn" data-filter="travel">Travel</button>
+      </div>
+
+      <!-- Gallery -->
+      <section class="gallery">
+        <div class="gallery-item" data-category="nature">
+          <img
+            src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80"
+            alt="Mountain landscape"
+          />
+
+          <div class="overlay">
+            <span>Nature</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="city">
+          <img
+            src="https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=800&q=80"
+            alt="City skyline"
+          />
+
+          <div class="overlay">
+            <span>City</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="travel">
+          <img
+            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
+            alt="Travel destination"
+          />
+
+          <div class="overlay">
+            <span>Travel</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="nature">
+          <img
+            src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80"
+            alt="Forest"
+          />
+
+          <div class="overlay">
+            <span>Nature</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="city">
+          <img
+            src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=800&q=80"
+            alt="City buildings"
+          />
+
+          <div class="overlay">
+            <span>City</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="travel">
+          <img
+            src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=80"
+            alt="Travel mountains"
+          />
+
+          <div class="overlay">
+            <span>Travel</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="nature">
+          <img
+            src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80"
+            alt="Lake and mountains"
+          />
+
+          <div class="overlay">
+            <span>Nature</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="city">
+          <img
+            src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80"
+            alt="Modern house"
+          />
+
+          <div class="overlay">
+            <span>City</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="lightbox" id="lightbox">
+      <button class="close-btn" id="closeBtn">&times;</button>
+
+      <button class="nav-btn prev-btn" id="prevBtn">&#10094;</button>
+
+      <div class="lightbox-content">
+        <img id="lightboxImage" src="" alt="" />
+      </div>
+
+      <button class="nav-btn next-btn" id="nextBtn">&#10095;</button>
     </div>
 
-  
-    <div class="gallery-grid">
-      <div class="gallery-item" data-category="nature">
-        <img src="https://picsum.photos/id/1015/600/400" alt="Mountain Lake">
-        <div class="overlay">
-          <h3>Mountain Lake</h3>
-          <span>Nature</span>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="nature">
-        <img src="https://picsum.photos/id/1043/600/400" alt="Forest Pathway">
-        <div class="overlay">
-          <h3>Forest Trail</h3>
-          <span>Nature</span>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="architecture">
-        <img src="https://picsum.photos/id/1040/600/400" alt="Modern Building">
-        <div class="overlay">
-          <h3>Modern Castle</h3>
-          <span>Architecture</span>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="city">
-        <img src="https://picsum.photos/id/1031/600/400" alt="City Lights">
-        <div class="overlay">
-          <h3>City Street</h3>
-          <span>City</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="lightbox" id="lightbox">
-    <button class="close-btn" id="closeBtn">&times;</button>
-    <button class="nav-btn prev-btn" id="prevBtn">&#10094;</button>
-    <div class="lightbox-content">
-      <img src="" alt="" class="lightbox-img" id="lightboxImg">
-      <div class="caption" id="lightboxCaption"></div>
-    </div>
-    <button class="nav-btn next-btn" id="nextBtn">&#10095;</button>
-  </div>
-
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
