@@ -83,7 +83,7 @@ The calculator works across:
 
 ## 👨‍💻 Author
 
-**Nisar Ahmad**
+**Umair Ali Fida**
 
 Frontend Developer
 
