@@ -1,201 +1,276 @@
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0f172a;
-  color: #f8fafc;
-  padding: 2rem 1rem;
-  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #fff;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
+.gallery-container {
+  width: min(1200px, 90%);
+  margin: auto;
+  padding: 70px 0;
 }
 
-h1 {
+.gallery-header {
   text-align: center;
-  margin-bottom: 1.5rem;
-  font-size: 2.2rem;
+  margin-bottom: 40px;
 }
 
-/* Category Filters */
-.filter-menu {
+.gallery-header h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  margin-bottom: 10px;
+}
+
+.gallery-header p {
+  color: #aaa;
+  font-size: 1.1rem;
+}
+
+/* Filters */
+
+.filters {
   display: flex;
   justify-content: center;
-  gap: 0.75rem;
-  margin-bottom: 2rem;
   flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
 }
 
 .filter-btn {
-  background: #1e293b;
-  color: #94a3b8;
-  border: 1px solid #334155;
-  padding: 0.5rem 1.25rem;
-  border-radius: 9999px;
+  border: 1px solid #444;
+  background: transparent;
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 30px;
   cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .filter-btn:hover,
 .filter-btn.active {
-  background: #38bdf8;
-  color: #0f172a;
-  border-color: #38bdf8;
-  box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+  background: #fff;
+  color: #111;
 }
 
-/* Responsive CSS Layout (Grid) */
-.gallery-grid {
+/* Gallery */
+
+.gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
 }
 
-/* Gallery Item, Hover Effects & Transitions */
 .gallery-item {
   position: relative;
-  border-radius: 12px;
+  height: 280px;
   overflow: hidden;
-  background-color: #1e293b;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
   cursor: pointer;
-  aspect-ratio: 4 / 3;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.gallery-item.hide {
-  display: none;
 }
 
 .gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  display: block;
+
+  transition:
+    transform 0.6s ease,
+    filter 0.6s ease;
 }
 
-
 .gallery-item:hover img {
-  transform: scale(1.1);
+  transform: scale(1.08);
+  filter: brightness(0.65);
 }
 
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(15, 23, 42, 0.85), transparent);
-  opacity: 0;
+
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 1.25rem;
-  transition: opacity 0.3s ease;
+  align-items: flex-end;
+
+  padding: 20px;
+
+  opacity: 0;
+
+  transition: opacity 0.4s ease;
 }
 
 .gallery-item:hover .overlay {
   opacity: 1;
 }
 
-.overlay h3 {
-  font-size: 1.1rem;
-}
-
 .overlay span {
-  font-size: 0.85rem;
-  color: #38bdf8;
-  text-transform: capitalize;
+  background: #fff;
+  color: #111;
+
+  padding: 8px 15px;
+
+  border-radius: 20px;
+
+  font-size: 14px;
 }
 
 .lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(8px);
+
+  background: rgba(0, 0, 0, 0.92);
+
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 1000;
+  justify-content: center;
+
   opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
+  visibility: hidden;
+
+  transition:
+    opacity 0.4s ease,
+    visibility 0.4s ease;
+
+  z-index: 999;
 }
 
 .lightbox.active {
   opacity: 1;
-  pointer-events: auto;
+  visibility: visible;
 }
 
 .lightbox-content {
-  position: relative;
-  max-width: 90vw;
-  max-height: 85vh;
+  width: min(900px, 80%);
+  height: 80%;
   display: flex;
-  flex-direction: column;
   align-items: center;
-}
-
-.lightbox-img {
-  max-width: 100%;
-  max-height: 75vh;
-  border-radius: 8px;
-  object-fit: contain;
-}
-
-.caption {
-  margin-top: 1rem;
-  font-size: 1.1rem;
-  color: #e2e8f0;
-}
-
-/* Navigation Buttons (Next / Prev) */
-.close-btn,
-.nav-btn {
-  position: absolute;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  border: none;
-  font-size: 1.75rem;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
   justify-content: center;
-  align-items: center;
-  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.close-btn:hover,
-.nav-btn:hover {
-  background: rgba(255, 255, 255, 0.25);
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 100%;
+
+  object-fit: contain;
+
+  border-radius: 8px;
+
+  transform: scale(0.9);
+  transition: transform 0.4s ease;
 }
+
+.lightbox.active .lightbox-content img {
+  transform: scale(1);
+}
+
+/* Close button */
 
 .close-btn {
-  top: 20px;
-  right: 20px;
+  position: absolute;
+  top: 25px;
+  right: 35px;
+
+  background: none;
+  border: none;
+
+  color: white;
+
+  font-size: 45px;
+
+  cursor: pointer;
+
+  z-index: 10;
+
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  transform: rotate(90deg);
+}
+
+/* Navigation */
+
+.nav-btn {
+  position: absolute;
+
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 55px;
+  height: 55px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.15);
+
+  color: #fff;
+
+  font-size: 25px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: #fff;
+  color: #111;
 }
 
 .prev-btn {
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
+  left: 30px;
 }
 
 .next-btn {
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
+  right: 30px;
 }
 
+/* Responsive */
+
+@media (max-width: 900px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-item {
+    height: 250px;
+  }
+}
 
 @media (max-width: 600px) {
-  .prev-btn { left: 10px; }
-  .next-btn { right: 10px; }
-  .nav-btn { width: 40px; height: 40px; font-size: 1.2rem; }
+  .gallery-container {
+    padding: 40px 0;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item {
+    height: 300px;
+  }
+
+  .nav-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+
+  .prev-btn {
+    left: 10px;
+  }
+
+  .next-btn {
+    right: 10px;
+  }
+
+  .lightbox-content {
+    width: 85%;
+    height: 70%;
+  }
 }
