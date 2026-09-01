@@ -1,113 +1,267 @@
-    const expressionEl = document.getElementById('expression');
-    const resultEl = document.getElementById('result');
+const currentDisplay = document.getElementById("current");
+const previousDisplay = document.getElementById("previous");
 
-    let currentInput = '0';
-    let previousInput = '';
-    let operator = null;
-    let shouldResetResult = false;
+const numberButtons = document.querySelectorAll(".number");
+const operatorButtons = document.querySelectorAll(".operator");
 
-    function updateDisplay() {
-      resultEl.textContent = currentInput;
-      if (operator !== null) {
-        const symbol = operator === '*' ? '×' : operator === '/' ? '÷' : operator === '-' ? '−' : '+';
-        expressionEl.textContent = `${previousInput} ${symbol}`;
-      } else {
-        expressionEl.textContent = '';
-      }
-    }
+const clearButton = document.querySelector(".clear");
+const deleteButton = document.querySelector(".delete");
+const equalsButton = document.querySelector(".equals");
 
-    function appendNumber(number) {
-      if (currentInput === '0' || shouldResetResult) {
-        currentInput = number;
-        shouldResetResult = false;
-      } else {
-        currentInput += number;
-      }
-      updateDisplay();
-    }
+let currentNumber = "";
+let previousNumber = "";
+let operator = null;
 
-    function appendDecimal() {
-      if (shouldResetResult) {
-        currentInput = '0.';
-        shouldResetResult = false;
-      } else if (!currentInput.includes('.')) {
-        currentInput += '.';
-      }
-      updateDisplay();
-    }
+function updateDisplay() {
+  if (currentNumber !== "") {
+    currentDisplay.textContent = currentNumber;
+  } else if (previousNumber !== "") {
+    currentDisplay.textContent = previousNumber;
+  } else {
+    currentDisplay.textContent = "0";
+  }
 
-    function appendOperator(op) {
-      if (operator !== null && !shouldResetResult) {
-        calculate();
-      }
-      previousInput = currentInput;
-      operator = op;
-      shouldResetResult = true;
-      updateDisplay();
-    }
+  if (previousNumber !== "" && operator !== null) {
+    previousDisplay.textContent =
+      previousNumber + " " + getOperatorSymbol(operator);
+  } else {
+    previousDisplay.textContent = "";
+  }
+}
 
-    function calculate() {
-      if (operator === null || shouldResetResult) return;
+function getOperatorSymbol(op) {
+  if (op === "*") return "×";
+  if (op === "/") return "÷";
+  if (op === "-") return "−";
+  if (op === "+") return "+";
+  if (op === "%") return "%";
 
-      const prev = parseFloat(previousInput);
-      const current = parseFloat(currentInput);
-      let res = 0;
+  return op;
+}
 
-      switch (operator) {
-        case '+': res = prev + current; break;
-        case '-': res = prev - current; break;
-        case '*': res = prev * current; break;
-        case '/': 
-          if (current === 0) {
-            currentInput = 'Error';
-            operator = null;
-            previousInput = '';
-            shouldResetResult = true;
-            updateDisplay();
-            return;
-          }
-          res = prev / current; 
-          break;
-      }
+function appendNumber(number) {
+  if (currentNumber === "Error") {
+    currentNumber = "";
+  }
 
-      currentInput = Math.round(res * 1000000) / 1000000 + '';
+  if (number === "." && currentNumber.includes(".")) {
+    return;
+  }
+
+  if (currentNumber === "") {
+    currentNumber = number;
+  } else if (currentNumber === "0" && number !== ".") {
+    currentNumber = number;
+  } else {
+    currentNumber += number;
+  }
+
+  updateDisplay();
+}
+
+function chooseOperator(selectedOperator) {
+  if (currentNumber === "" && previousNumber !== "") {
+    operator = selectedOperator;
+
+    updateDisplay();
+
+    return;
+  }
+
+  if (currentNumber === "") {
+    return;
+  }
+
+  if (previousNumber !== "" && operator !== null) {
+    const result = performCalculation(
+      parseFloat(previousNumber),
+      parseFloat(currentNumber),
+      operator,
+    );
+
+    if (result === "Error") {
+      currentNumber = "Error";
+      previousNumber = "";
       operator = null;
-      previousInput = '';
-      shouldResetResult = true;
+
       updateDisplay();
+
+      return;
     }
 
-    function clearDisplay() {
-      currentInput = '0';
-      previousInput = '';
-      operator = null;
-      shouldResetResult = false;
-      updateDisplay();
-    }
+    previousNumber = result.toString();
+  } else {
+    previousNumber = currentNumber;
+  }
 
-    function deleteLast() {
-      if (shouldResetResult) return;
-      if (currentInput.length === 1) {
-        currentInput = '0';
-      } else {
-        currentInput = currentInput.slice(0, -1);
-      }
-      updateDisplay();
-    }
+  // Current empty
+  currentNumber = "";
 
-      document.addEventListener('keydown', (e) => {
-      if (e.key >= '0' && e.key <= '9') appendNumber(e.key);
-      if (e.key === '.') appendDecimal();
-      if (e.key === '+' || e.key === '-') appendOperator(e.key);
-      if (e.key === '*') appendOperator('*');
-      if (e.key === '/') {
-        e.preventDefault();
-        appendOperator('/');
+  // New operator
+  operator = selectedOperator;
+
+  updateDisplay();
+}
+
+// ======================================
+// ACTUAL CALCULATION
+// ======================================
+
+function performCalculation(first, second, op) {
+  let result;
+
+  switch (op) {
+    case "+":
+      result = first + second;
+
+      break;
+
+    case "-":
+      result = first - second;
+
+      break;
+
+    case "*":
+      result = first * second;
+
+      break;
+
+    case "/":
+      if (second === 0) {
+        return "Error";
       }
-      if (e.key === 'Enter' || e.key === '=') {
-        e.preventDefault();
-        calculate();
-      }
-      if (e.key === 'Backspace') deleteLast();
-      if (e.key === 'Escape') clearDisplay();
-    });
+
+      result = first / second;
+
+      break;
+
+    case "%":
+      result = first % second;
+
+      break;
+
+    default:
+      return second;
+  }
+
+  return Number(result.toFixed(10));
+}
+
+function calculate() {
+  if (previousNumber === "" || currentNumber === "" || operator === null) {
+    return;
+  }
+
+  const first = parseFloat(previousNumber);
+
+  const second = parseFloat(currentNumber);
+
+  const result = performCalculation(first, second, operator);
+
+  if (result === "Error") {
+    currentNumber = "Error";
+
+    previousNumber = "";
+
+    operator = null;
+
+    updateDisplay();
+
+    return;
+  }
+
+  currentNumber = result.toString();
+
+  previousNumber = "";
+
+  operator = null;
+
+  updateDisplay();
+}
+
+function clearCalculator() {
+  currentNumber = "";
+
+  previousNumber = "";
+
+  operator = null;
+
+  updateDisplay();
+}
+
+function deleteNumber() {
+  if (currentNumber === "Error") {
+    currentNumber = "";
+  } else {
+    currentNumber = currentNumber.slice(0, -1);
+  }
+
+  updateDisplay();
+}
+
+numberButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    appendNumber(button.dataset.number);
+  });
+});
+
+operatorButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    chooseOperator(button.dataset.operator);
+  });
+});
+
+equalsButton.addEventListener("click", calculate);
+
+clearButton.addEventListener("click", clearCalculator);
+
+deleteButton.addEventListener("click", deleteNumber);
+
+document.addEventListener("keydown", (event) => {
+  const key = event.key;
+
+  if (key >= "0" && key <= "9") {
+    appendNumber(key);
+
+    return;
+  }
+
+  if (key === ".") {
+    appendNumber(".");
+
+    return;
+  }
+
+  if (key === "+" || key === "-" || key === "*" || key === "/") {
+    chooseOperator(key);
+
+    return;
+  }
+
+  // Percentage
+  if (key === "%") {
+    chooseOperator("%");
+
+    return;
+  }
+
+  if (key === "Enter" || key === "=") {
+    event.preventDefault();
+
+    calculate();
+
+    return;
+  }
+
+  if (key === "Backspace") {
+    deleteNumber();
+
+    return;
+  }
+
+  if (key === "Escape") {
+    clearCalculator();
+
+    return;
+  }
+});
