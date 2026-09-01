@@ -1,109 +1,76 @@
-# 👋 Hi, I'm Umair Ali Fida
 
-### 💻 Frontend Developer
+<p align="center">
+  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=250&color=gradient&text=Nisar%20Ahmad&fontColor=ffffff&fontSize=48&animation=fadeIn&fontAlignY=38&desc=Frontend%20Developer%20|%20MERN%20Stack%20Learner&descAlignY=58"/>
+</p>
 
-I’m a passionate **Frontend Developer** focused on building responsive, modern, and user-friendly web interfaces. I enjoy turning ideas into clean and interactive websites using modern frontend technologies.
+<h1 align="center">Hi 👋, I'm Umair Ali Fida</h1>
+
+<h3 align="center">
+Frontend Developer 
+</h3>
+
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Poppins&size=24&pause=1000&color=00C2FF&center=true&vCenter=true&width=700&lines=Frontend+Developer;React+Developer;Building+Modern+Responsive+Websites;Learning+MERN+Stack;Open+to+New+Opportunities" />
+</p>
 
 ---
 
 ## 🚀 About Me
 
-* 💻 Frontend Developer
-* 🌱 Currently improving my frontend development skills
-* 🎨 Interested in responsive UI/UX and modern web design
-* ⚡ Love building projects and learning new technologies
-* 🤝 Open to collaboration and new opportunities
+- 🎓 BS Information Technology Student
+- 💻 Passionate Frontend Developer
+- 🎨 Love building responsive and interactive web experiences
+- 🚀 Currently improving my frontend skills
 
 ---
 
 ## 🛠️ Tech Stack
 
-### 🌐 Frontend
-
-<p>
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
-</p>
-
-### 🎨 Frameworks & Libraries
-
-<p>
-  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
-  <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" />
+<p align="center">
+<img src="https://skillicons.dev/icons?i=html,css,js,github,vscode,bootstrap,"/>
 </p>
 
 ---
 
 ## 🚀 Featured Projects
 
-### 🛒 E-Commerce Store
 
-A responsive e-commerce frontend with product listings, categories, product cards, and a modern shopping interface.
-
-**Tech:** HTML • CSS • JavaScript • Bootstrap
 
 ---
 
-### 🌦️ Weather App
+### 💼 Frontend Internship Projects
+Developed modern, responsive, and reusable UI components during my internship at **NeuroFive Solutions**.
 
-A responsive weather application with a clean interface for displaying weather information and forecasts.
-
-**Tech:** HTML • CSS • JavaScript
-
----
-
-### 💼 Personal Portfolio
-
-A modern personal portfolio website showcasing skills, projects, experience, and contact information.
-
-**Tech:** HTML • CSS • JavaScript • Tailwind CSS
+**Tech:** HTML • CSS • JavaScript 
 
 ---
 
-### 📝 To-Do List App
 
-A simple and interactive task management application built with JavaScript, featuring task creation, completion, and deletion.
-
-**Tech:** HTML • CSS • JavaScript
+### 🌐 Responsive Landing Pages
+Built fast, mobile-first, SEO-friendly landing pages with clean and accessible UI.
 
 ---
 
-## 📚 Currently Learning
+## 🌱 Currently Learning
 
-* 🧠 Advanced JavaScript
-* 💻 Modern Frontend Development
-* 📱 Responsive Web Design
-* 🎨 UI/UX Design Principles
-
----
-
-## 🎯 Goals
-
-My goal is to become a **strong professional Frontend Developer** and build high-quality web applications that provide great user experiences.
+- React.js
+- Node.js
+- Express.js
+- MongoDB
+- Git & GitHub Best Practices
 
 ---
 
-## 📊 GitHub
+## 🎯 2026 Goals
 
-<p>
-  <a href="https://github.com/umairalifida">
-    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" />
-  </a>
+- 🚀 Become a Full Stack MERN Developer
+- 💼 Build Production-Level Applications
+- 🌍 Contribute to Open Source
+- 📚 Learn Backend Architecture
+- ⭐ Grow My Developer Portfolio
+
+---
+
+<p align="center">
+  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&section=footer&height=120&color=gradient"/> 
 </p>
-
----
-
-## 🤝 Connect With Me
-
-<p>
-  <a href="https://github.com/umairalifida">
-    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" />
-  </a>
-</p>
-
----
-
-### ⭐ Thanks for visiting my profile!
-
-💻 **Keep Coding • Keep Learning • Keep Building 🚀**
