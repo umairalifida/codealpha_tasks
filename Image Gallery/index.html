@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Image Gallery</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Photo Gallery</h1>
+
+   
+    <div class="filter-menu">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="nature">Nature</button>
+      <button class="filter-btn" data-filter="architecture">Architecture</button>
+      <button class="filter-btn" data-filter="city">City</button>
+    </div>
+
+  
+    <div class="gallery-grid">
+      <div class="gallery-item" data-category="nature">
+        <img src="https://picsum.photos/id/1015/600/400" alt="Mountain Lake">
+        <div class="overlay">
+          <h3>Mountain Lake</h3>
+          <span>Nature</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="nature">
+        <img src="https://picsum.photos/id/1043/600/400" alt="Forest Pathway">
+        <div class="overlay">
+          <h3>Forest Trail</h3>
+          <span>Nature</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="architecture">
+        <img src="https://picsum.photos/id/1040/600/400" alt="Modern Building">
+        <div class="overlay">
+          <h3>Modern Castle</h3>
+          <span>Architecture</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="city">
+        <img src="https://picsum.photos/id/1031/600/400" alt="City Lights">
+        <div class="overlay">
+          <h3>City Street</h3>
+          <span>City</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="lightbox" id="lightbox">
+    <button class="close-btn" id="closeBtn">&times;</button>
+    <button class="nav-btn prev-btn" id="prevBtn">&#10094;</button>
+    <div class="lightbox-content">
+      <img src="" alt="" class="lightbox-img" id="lightboxImg">
+      <div class="caption" id="lightboxCaption"></div>
+    </div>
+    <button class="nav-btn next-btn" id="nextBtn">&#10095;</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
